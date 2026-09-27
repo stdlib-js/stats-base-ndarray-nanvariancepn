@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,19 +16,11 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var ndarraylike2scalar = require( '@stdlib/ndarray-base-ndarraylike2scalar' );
-var strided = require( '@stdlib/stats-strided-nanvariancepn' ).ndarray;
-
-
-// MAIN //
+import { typedndarray } from '@stdlib/types/ndarray';
 
 /**
 * Computes the variance of a one-dimensional ndarray, ignoring `NaN` values and using a two-pass algorithm.
@@ -40,33 +32,24 @@ var strided = require( '@stdlib/stats-strided-nanvariancepn' ).ndarray;
 *     -   a one-dimensional input ndarray.
 *     -   a zero-dimensional ndarray specifying the degrees of freedom adjustment.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing ndarrays
-* @returns {number} variance
+* @param arrays - array-like object containing ndarrays
+* @returns variance
 *
 * @example
 * var vector = require( '@stdlib/ndarray-vector-ctor' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
 *
-* var x = vector( [ 2.0, 1.0, 2.0, -2.0, -2.0, 2.0, 3.0, 4.0, NaN, NaN ], 'generic' );
-*
+* var x = vector( [ 1.0, -2.0, 2.0, NaN ], 'generic' );
 * var correction = scalar2ndarray( 1.0, {
 *     'dtype': 'generic'
 * });
 *
 * var v = nanvariancepn( [ x, correction ] );
-* // returns ~4.79
+* // returns ~4.3333
 */
-function nanvariancepn( arrays ) {
-	var correction;
-	var x;
-
-	x = arrays[ 0 ];
-	correction = ndarraylike2scalar( arrays[ 1 ] );
-
-	return strided( numelDimension( x, 0 ), correction, getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-}
+declare function nanvariancepn( arrays: [ typedndarray<number>, typedndarray<number> ] ): number;
 
 
 // EXPORTS //
 
-module.exports = nanvariancepn;
+export = nanvariancepn;
