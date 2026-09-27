@@ -45,8 +45,8 @@ The population [variance][variance] of a finite size population of size `N` is g
 \sigma^2 = \frac{1}{N} \sum_{i=0}^{N-1} (x_i - \mu)^2
 ```
 
-<!-- <div class="equation" align="center" data-raw-text="\sigma^2 = \frac{1}{N} \sum_{i=0}^{N-1} (x_i - \mu)^2}" data-equation="eq:population_variance">
-    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@08ca32895957967bd760a4fe02d61762432a0b72/lib/node_modules/@stdlib/stats/strided/variance/docs/img/equation_population_variance.svg" alt="Equation for the population variance.">
+<!-- <div class="equation" align="center" data-raw-text="\sigma^2 = \frac{1}{N} \sum_{i=0}^{N-1} (x_i - \mu)^2" data-equation="eq:population_variance">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@fc04ac87d4e7ea5c575e2224ead8966db2bd63f2/lib/node_modules/@stdlib/stats/base/ndarray/nanvariancepn/docs/img/equation_population_variance.svg" alt="Equation for the population variance.">
     <br>
 </div> -->
 
@@ -61,7 +61,7 @@ where the population mean is given by
 ```
 
 <!-- <div class="equation" align="center" data-raw-text="\mu = \frac{1}{N} \sum_{i=0}^{N-1} x_i" data-equation="eq:population_mean">
-    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@08ca32895957967bd760a4fe02d61762432a0b72/lib/node_modules/@stdlib/stats/strided/variance/docs/img/equation_population_mean.svg" alt="Equation for the population mean.">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@fc04ac87d4e7ea5c575e2224ead8966db2bd63f2/lib/node_modules/@stdlib/stats/base/ndarray/nanvariancepn/docs/img/equation_population_mean.svg" alt="Equation for the population mean.">
     <br>
 </div> -->
 
@@ -75,8 +75,8 @@ Often in the analysis of data, the true population [variance][variance] is not k
 s^2 = \frac{1}{n-1} \sum_{i=0}^{n-1} (x_i - \bar{x})^2
 ```
 
-<!-- <div class="equation" align="center" data-raw-text="s^2 = \frac{1}{n-1} \sum_{i=0}^{n-1} (x_i - \bar{x})^2}" data-equation="eq:corrected_sample_variance">
-    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@08ca32895957967bd760a4fe02d61762432a0b72/lib/node_modules/@stdlib/stats/strided/variance/docs/img/equation_corrected_sample_variance.svg" alt="Equation for computing a corrected sample variance.">
+<!-- <div class="equation" align="center" data-raw-text="s^2 = \frac{1}{n-1} \sum_{i=0}^{n-1} (x_i - \bar{x})^2" data-equation="eq:corrected_sample_variance">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@fc04ac87d4e7ea5c575e2224ead8966db2bd63f2/lib/node_modules/@stdlib/stats/base/ndarray/nanvariancepn/docs/img/equation_corrected_sample_variance.svg" alt="Equation for computing a corrected sample variance.">
     <br>
 </div> -->
 
@@ -91,7 +91,7 @@ where the sample mean is given by
 ```
 
 <!-- <div class="equation" align="center" data-raw-text="\bar{x} = \frac{1}{n} \sum_{i=0}^{n-1} x_i" data-equation="eq:sample_mean">
-    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@08ca32895957967bd760a4fe02d61762432a0b72/lib/node_modules/@stdlib/stats/strided/variance/docs/img/equation_sample_mean.svg" alt="Equation for the sample mean.">
+    <img src="https://cdn.jsdelivr.net/gh/stdlib-js/stdlib@d6d67bd2c6ee35de287d50fad4058371c291fd33/lib/node_modules/@stdlib/stats/base/ndarray/nanvariancepn/docs/img/equation_sample_mean.svg" alt="Equation for the sample mean.">
     <br>
 </div> -->
 
@@ -103,38 +103,32 @@ The use of the term `n-1` is commonly referred to as Bessel's correction. Note, 
 
 <!-- /.intro -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/stats-base-ndarray-nanvariancepn
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-nanvariancepn = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-nanvariancepn@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var nanvariancepn = require( 'path/to/vendor/umd/stats-base-ndarray-nanvariancepn/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-nanvariancepn@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.nanvariancepn;
-})();
-</script>
+var nanvariancepn = require( '@stdlib/stats-base-ndarray-nanvariancepn' );
 ```
 
 #### nanvariancepn( arrays )
@@ -182,19 +176,14 @@ The function has the following parameters:
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-bernoulli@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-fill-by@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-zeros@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-from-scalar@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-to-array@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/stats-base-ndarray-nanvariancepn@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var uniform = require( '@stdlib/random-base-uniform' );
+var bernoulli = require( '@stdlib/random-base-bernoulli' );
+var fillBy = require( '@stdlib/ndarray-fill-by' );
+var zeros = require( '@stdlib/ndarray-zeros' );
+var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
+var ndarray2array = require( '@stdlib/ndarray-to-array' );
+var nanvariancepn = require( '@stdlib/stats-base-ndarray-nanvariancepn' );
 
 function rand() {
     if ( bernoulli( 0.8 ) < 1 ) {
@@ -213,11 +202,6 @@ console.log( ndarray2array( x ) );
 var correction = scalar2ndarray( 1.0, opts );
 var v = nanvariancepn( [ x, correction ] );
 console.log( v );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
